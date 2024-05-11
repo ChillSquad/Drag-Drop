@@ -31,14 +31,20 @@ function dragover(event) {
 }
 
 function dragenter(event) {
-    event.target.classList.add('hovered')
+    placeholders.forEach((placeholder) => {
+        placeholder.classList.add('highlight');
+    });
+    event.target.classList.add('hovered');
 }
 
 function dragleave(event) {
-    event.target.classList.remove('hovered')
+    event.target.classList.remove('hovered');
 }
 
 function dragdrop(event) {
     event.target.append(item);
-    event.target.classList.remove('hovered')
+    placeholders.forEach((placeholder) => {
+        placeholder.className = 'placeholder';
+    });
+    // event.target.classList.remove('hovered');
 }
